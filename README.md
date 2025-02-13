@@ -1,1 +1,1 @@
-Templates to backstage.io
+A collection of all Backstage example Templates
