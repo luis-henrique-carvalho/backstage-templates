@@ -35,7 +35,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./content/create-azure-repository-v2
+        targetPath: ./content/create-azure-repository-v2
         values:
           name: ${{ parameters.name }}
           service: ${{ parameters.service }}
