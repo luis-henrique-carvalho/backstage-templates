@@ -6,3 +6,4 @@ metadata:
 spec:
   targets:
     - ./templates/create-azure-repository.yaml
+    - ./templates/create-azure-repository-v2.yaml
