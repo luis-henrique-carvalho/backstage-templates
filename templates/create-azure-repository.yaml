@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: azure-repository
-  title: Create Azure Repository
-  description: Create a new azure repository
+  name: azure-repository-v2
+  title: Create Azure Repository V2
+  description: Create a new azure repository with more steps
   tags:
     - recommended
     - cloud-azure
