@@ -1,4 +1,0 @@
-{
-    "name": "${{ parameters.name }}",
-    "service": "${{ parameters.service }}"
-}
