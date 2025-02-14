@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: azure-repository-v2
   title: Create Azure Repository V2
-  description: Create a new azure repository with more steps
+  description: Create a new azure repository with more steps and a catalog registration
   tags:
     - recommended
     - cloud-azure
