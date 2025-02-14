@@ -1,0 +1,4 @@
+{
+    "name": "${{ parameters.name }}",
+    "service": "${{ parameters.name }}"
+}
