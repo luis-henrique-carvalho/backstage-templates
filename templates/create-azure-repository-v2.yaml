@@ -56,7 +56,7 @@ spec:
           - filePath: "README"
             fileType: "md"
             content: "# ${{ parameters.name }} Service\n\nThis repository contains the **${{ parameters.service }}** service."
-          - filePath: "catalog-info.yaml"
+          - filePath: "catalog-info"
             fileType: "yaml"
             content: |
               apiVersion: backstage.io/v1alpha1
