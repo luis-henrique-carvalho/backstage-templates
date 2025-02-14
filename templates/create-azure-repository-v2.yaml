@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: azure-repository-v2
   title: Create Azure Repository V2
-  description: Create a new azure repository with more steps and a catalog registration
+  description: Create a new azure repository with more steps and a catalog registration with the new repository
   tags:
     - recommended
     - cloud-azure
@@ -58,6 +58,12 @@ spec:
         organization: luishenrique92250483
         project: backstage
         branchNames: ["develop", "qa", "uat"]
+
+    - id: log-repo-url
+      name: Log repo URL
+      action: debug:log
+      input:
+        message: "Repo URL: ${{ steps['publish-azure'].output.remoteUrl }}"
 
     - id: register
       name: Register
