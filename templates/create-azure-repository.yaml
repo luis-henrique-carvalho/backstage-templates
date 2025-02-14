@@ -52,7 +52,7 @@ spec:
         fileList:
           - filePath: "config/info"
             fileType: "json"
-            content: '{"name": "${{ parameters.name }}", "service": "${{ parameters.name }}"}'
+            content: '{"name": "${{ parameters.name }}", "service": "${{ parameters.service }}"}'
           - filePath: "README"
             fileType: "md"
             content: "# ${{ parameters.name }} Service\n\nThis repository contains the **${{ parameters.name }}** service."
