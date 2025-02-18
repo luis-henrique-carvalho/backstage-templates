@@ -1,12 +1,12 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: azure-repository-v2
-  title: Create Azure Repository V2
-  description: Create a new azure repository with more steps and a catalog registration with the new repository
+  name: create-new-repository
+  title: Create New Repository
+  description: Create a new repository
   tags:
     - recommended
-    - cloud-azure
+    - nodejs
 spec:
   owner: user:guest
   type: service
@@ -24,18 +24,22 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-        service:
-          title: Service Name
-          type: string
-          description: The name of the service
-          ui:options:
-            rows: 5
+        offer:
+          title: Oferta de Arquitetura
+          type: array
+          items:
+            type: string
+            enum:
+              - NodeJS
+          uniqueItems: true
+          ui:widget: checkboxes
+
   steps:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
       input:
-        url: https://github.com/luis-henrique-carvalho/node-api-backstage
+        url: ${{ 'https://github.com/luis-henrique-carvalho/node-api-backstage' if parameters.offer == 'NodeJS' }}
         values:
           name: ${{ parameters.name }}
 
