@@ -12,20 +12,21 @@ spec:
   type: service
 
   parameters:
-    - title: Fill in some steps
+    - title: Informações do Projeto
       required:
         - name
         - offer
       properties:
         name:
-          title: Project Name
+          title: Nome do Projeto
           type: string
-          description: The name of the Project
+          description: Selecione o nome do projeto.
           ui:autofocus: true
           ui:options:
             rows: 5
         offer:
           title: Oferta de Arquitetura
+          description: Selecione qual oferta de arquitetura deseja utilizar.
           type: array
           items:
             type: string
@@ -33,6 +34,35 @@ spec:
               - NodeJS
           uniqueItems: true
           ui:widget: checkboxes
+
+    - title: Variáveis de Ambiente
+      required:
+        - POSTGRES_HOST
+        - POSTGRES_PORT
+        - POSTGRES_USER
+        - POSTGRES_DATABASE_NAME
+        - PORT
+      properties:
+        POSTGRES_HOST:
+          title: Host do PostgreSQL
+          type: string
+          description: Endereço do banco de dados PostgreSQL.
+        POSTGRES_USER:
+          title: Usuário do PostgreSQL
+          type: string
+          description: Usuário do banco de dados PostgreSQL.
+        POSTGRES_PASSWORD:
+          title: Senha do PostgreSQL
+          type: string
+          description: Senha do banco de dados PostgreSQL.
+        POSTGRES_DATABASE_NAME:
+          title: Nome do Banco de Dados
+          type: string
+          description: Nome do banco de dados PostgreSQL.
+        PORT:
+          title: Porta da Aplicação
+          type: string
+          description: Porta da aplicação.
 
   steps:
     - id: fetch-base
@@ -62,6 +92,15 @@ spec:
         project: backstage
         branch: master
         fileList:
+          - filePath: "."
+            fileType: "env"
+            content: |
+              PORT=${{ parameters.PORT }}
+              POSTGRES_HOST=${{ parameters.POSTGRES_HOST }}
+              POSTGRES_USER=${{ parameters.POSTGRES_USER }}
+              POSTGRES_PASSWORD=${{ parameters.POSTGRES_PASSWORD }}
+              POSTGRES_DATABASE_NAME=${{ parameters.POSTGRES_DATABASE_NAME }}
+              DATABASE_URL=postgresql://${{ parameters.POSTGRES_USER }}:${{ parameters.POSTGRES_PASSWORD }}@${{ parameters.POSTGRES_HOST }}:${{ parameters.POSTGRES_PORT }}/${{ parameters.POSTGRES_DATABASE_NAME }}
           - filePath: "catalog-info"
             fileType: "yaml"
             content: |
