@@ -15,7 +15,7 @@ spec:
     - title: Fill in some steps
       required:
         - name
-        - service
+        - offer
       properties:
         name:
           title: Project Name
