@@ -8,4 +8,4 @@ spec:
     - ./templates/create-azure-repository.yaml
     - ./templates/create-azure-repository-v2.yaml
     - ./templates/create-new-repository.yaml
-    - ./tempçates/create-azure-resease-pipline.yaml
+    - ./templates/create-azure-resease-pipline.yaml
